@@ -19,3 +19,69 @@ body::before {
   background-size: cover;
   background-position: center;
 }
+.container {
+  position: absolute;
+  width: 350px;
+  height: 340px;
+  border-radius: 15px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  transition: 0.5s;
+}
+.container::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: repeating-conic-gradient(
+    from var(--a),
+    #45f3ff 0%,
+    #45f3ff 10%,
+    transparent 10%,
+    transparent 80%,
+    #45f3ff 100%
+  );
+  border-radius: 20px;
+  animation: animate 2.5s linear infinite;
+}
+@property --a {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+@keyframes animate {
+  0% {
+    --a: 0deg;
+  }
+  100% {
+    --a: 360deg;
+  }
+}
+
+.container span {
+  position: absolute;
+  inset: 5px;
+  overflow: hidden;
+  border-radius: 15px;
+}
+.container span::before {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  background: url("https://img.freepik.com/free-photo/fading-blue-background_53876-88684.jpg?w=826&t=st=1696525707~exp=1696526307~hmac=b1498a9559272fdd3fed07dc4fd604ea57515e5e72893527d0056f364e53da80");
+  background-size: cover;
+  background-position: center;
+  filter: blur(40px);
+}
+.container span::after {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  background: url("https://img.freepik.com/free-photo/blue-background_23-2147633356.jpg?w=826&t=st=1696526145~exp=1696526745~hmac=7031ea72ad30eb11a80aa1924991be717f9404d555b1ce3fd31defb4aa1337e9");
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+}
